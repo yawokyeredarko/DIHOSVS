@@ -20,15 +20,6 @@ Flexbox
 Google Fonts
 Fichiers SVG
 Arborescence du projet
-.
-├── index.html
-├── style.css
-└── image/
-    ├── menu.svg
-    ├── Bluesky_Logo 1.svg
-    ├── Mastodon_Logotype_(Simple) 1.svg
-    └── Vector.svg
-Contenu de la page
 
 La page comprend :
 
