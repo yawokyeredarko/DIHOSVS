@@ -2,13 +2,28 @@
     margin: 0;
 }
 
+:root {
+    --color-primary: #000000;
+    --color-secondary: #ffffff;
+    --color-text: #000000;
+    --color-text-inverse: #ffffff;
+    --color-background: #ffffff;
+    --color-line: #000000;
+    --color-transparent: transparent;
+}
+
+body {
+    background-color: var(--color-background);
+    color: var(--color-text);
+}
+
 /* header */
 
 
 header {
     position: fixed;
     z-index: 99999999999999;
-    background-color: rgba(118, 37, 37, 0);
+    background-color: var(--color-transparent);
     height: 15vh;
     width: 96vw;
     margin-top: 1vh;
@@ -78,7 +93,7 @@ main {
 .right-header-first-container {
     height: 100%;
     width: 30%;
-    background-color: black;
+    background-color: var(--color-primary);
     display: flex;
     align-items: center;
     justify-content: center;
@@ -90,14 +105,14 @@ main {
     font-family: 'Impact';
     font-size: 17px;
     font-weight: 100;
-    color: white;
+    color: var(--color-text-inverse);
     text-transform: uppercase;
 }
 
 .right-header-second-container {
     height: 100%;
     width: 30%;
-    background-color: black;
+    background-color: var(--color-primary);
     display: flex;
     align-items: center;
     justify-content: center;
@@ -108,7 +123,7 @@ main {
     font-family: 'Impact';
     font-size: 17px;
     font-weight: 100;
-    color: white;
+    color: var(--color-text-inverse);
     text-transform: uppercase;
 }
 
@@ -217,7 +232,7 @@ main {
 
 /* mid */
 .promotion-container {
-    /* background-color: rgb(255, 0, 0); */
+    /* background-color: var(--color-primary); */
     grid-row: 5/6;
     grid-column: 1/4;
     display: flex;
@@ -226,7 +241,7 @@ main {
 }
 
 .pormotion-element-container {
-    background-color: rgb(0, 0, 0);
+    background-color: var(--color-primary);
     width: 100%;
     height: 70%;
     display: flex;
@@ -236,7 +251,7 @@ main {
 
 .promotion-element {
     font-family: 'Impact';
-    color: white;
+    color: var(--color-text-inverse);
     font-size: 30px;
     text-align: center;
     text-transform: uppercase;
@@ -247,7 +262,7 @@ main {
 
 
 .download-element-container {
-    background-color: rgb(0, 0, 0);
+    background-color: var(--color-primary);
     grid-row: 6/7;
     grid-column: 1/7;
     display: flex;
@@ -260,7 +275,7 @@ main {
     font-family: 'Impact';
     text-align: center;
     text-transform: uppercase;
-    color: white;
+    color: var(--color-text-inverse);
     font-size: 30px;
 }
 
@@ -268,7 +283,7 @@ main {
 
 /* low */
 .main-page-foot-container {
-    /* background-color: rgb(255, 0, 0); */
+    /* background-color: var(--color-primary); */
     grid-row: 7/8;
     grid-column: 1/7;
     display: flex;
@@ -314,7 +329,7 @@ footer {
     left: 0;
     width: 100%;
     height: 12vh;
-    background-color: rgba(202, 14, 14, 0);
+    background-color: var(--color-transparent);
     z-index: 9999;
 
 }
@@ -326,8 +341,8 @@ footer {
 .background-line-one {
     position: relative;
     z-index: -999;
-    border-left: solid black 1px;
-    border-right: solid black 1px;
+    border-left: solid var(--color-line) 1px;
+    border-right: solid var(--color-line) 1px;
     grid-column: 1;
     grid-row: 1/8;
     opacity: 0.2;
@@ -336,7 +351,7 @@ footer {
 .background-line-two {
     position: relative;
     z-index: -999;
-    border-right: solid black 1px;
+    border-right: solid var(--color-line) 1px;
     grid-column: 2;
     grid-row: 1/8;
     opacity: 0.2;
@@ -345,7 +360,7 @@ footer {
 .background-line-tree {
     position: relative;
     z-index: -999;
-    border-right: solid black 1px;
+    border-right: solid var(--color-line) 1px;
     grid-column: 3;
     grid-row: 1/8;
     opacity: 0.2;
@@ -354,7 +369,7 @@ footer {
 .background-line-four {
     position: relative;
     z-index: -999;
-    border-right: solid black 1px;
+    border-right: solid var(--color-line) 1px;
     grid-column: 4;
     grid-row: 1/8;
     opacity: 0.2;
@@ -363,7 +378,7 @@ footer {
 .background-line-five {
     position: relative;
     z-index: -999;
-    border-right: solid black 1px;
+    border-right: solid var(--color-line) 1px;
     grid-column: 5;
     grid-row: 1/8;
     opacity: 0.2;
@@ -372,8 +387,246 @@ footer {
 .background-line-six {
     position: relative;
     z-index: -999;
-    border-right: solid black 1px;
+    border-right: solid var(--color-line) 1px;
     grid-column: 6;
     grid-row: 1/8;
     opacity: 0.2;
+}
+
+
+/* ============================================
+   DESKTOP RESPONSIVE — 768px et plus
+   Design mobile conservé tel quel.
+   ============================================ */
+
+@media (min-width: 768px) {
+
+    /* --- BODY : évite tout débordement horizontal --- */
+    body {
+        overflow-x: hidden;
+    }
+
+    /* --- GRILLE PRINCIPALE --- */
+    /* La grille occupe toute la largeur viewport, comme sur mobile,
+       mais on bride la hauteur des rangées pour rester dans 100vh */
+    .main-page {
+        width: 96vw;
+        height: 100vh;
+        overflow: hidden;
+        grid-template-rows:
+            12vh          /* row 1 : header placeholder */
+            1fr           /* row 2 : titre ligne 1 */
+            1fr           /* row 3 : titre ligne 2-3 */
+            minmax(0, 0.55fr) /* row 4 : description + réseaux */
+            minmax(0, 0.5fr)  /* row 5 : promo */
+            minmax(0, 0.55fr) /* row 6 : download */
+            minmax(0, 0.45fr);/* row 7 : footer */
+        row-gap: 8px;
+    }
+
+    /* --- HEADER FIXE ---
+       Même largeur que la grille (96vw), repositionné proprement */
+    header {
+        width: 96vw;
+        height: 12vh;
+        margin-top: 0;
+        margin-left: 2vw;
+        left: 0;
+        transform: none;
+    }
+
+    .main-header-container {
+        height: 100%;
+        align-items: center;
+    }
+
+    /* Logo : visible et non coupé */
+    .main-header-left-container {
+        width: 20%;
+        display: flex;
+        align-items: center;
+        height: 100%;
+    }
+
+    .left-header-element {
+        font-size: clamp(16px, 1.8vw, 28px);
+        white-space: nowrap;
+    }
+
+    /* Boutons LOGIN / REGISTER */
+    .main-header-right-container {
+        width: 70%;
+        align-items: center;
+        gap: 8px;
+    }
+
+    .right-header-first-container,
+    .right-header-second-container {
+        width: auto;
+        min-width: 90px;
+        max-width: 130px;
+        height: 60%;
+        padding: 0 16px;
+        margin-right: 6px;
+    }
+
+    .right-header-first-element,
+    .right-header-second-element {
+        font-size: clamp(11px, 1vw, 15px);
+        letter-spacing: 0.1em;
+        white-space: nowrap;
+    }
+
+    .right-menu-container {
+        width: auto;
+        min-width: 36px;
+        height: 60%;
+    }
+
+    .menu-element {
+        height: 100%;
+        width: auto;
+    }
+
+    /* --- TITRE PRINCIPAL ---
+       On utilise vw borné par clamp pour que le texte reste dans la grille */
+    .title-element {
+        font-size: clamp(48px, 7.5vw, 130px);
+        line-height: 0.95;
+        overflow: hidden;
+    }
+
+    /* --- DESCRIPTION + RÉSEAUX ---
+       Côte à côte sur desktop */
+    .second-element-coantainer {
+        flex-direction: row;
+        align-items: center;
+        justify-content: flex-start;
+        gap: 32px;
+        overflow: hidden;
+    }
+
+    .second-element {
+        font-size: clamp(12px, 1vw, 16px);
+        flex-shrink: 0;
+        line-height: 1.5;
+    }
+
+    /* Icônes réseaux sociaux */
+    .social-logo-container {
+        height: auto;
+        align-items: center;
+        gap: 8px;
+        flex-wrap: nowrap;
+    }
+
+    .first-social-logo-container,
+    .second-social-logo-container,
+    .third-social-logo-container {
+        width: 36px;
+        height: 36px;
+        margin-left: 0;
+        flex-shrink: 0;
+    }
+
+    .first-logo-element,
+    .second-logo-element,
+    .third-logo-element {
+        width: 100%;
+        height: 100%;
+        object-fit: contain;
+    }
+
+    /* --- PROMO ---
+       3 colonnes sur 6, alignée en bas */
+    .promotion-container {
+        grid-column: 1 / 4;
+    }
+
+    .pormotion-element-container {
+        height: 75%;
+    }
+
+    .promotion-element {
+        font-size: clamp(18px, 2vw, 32px);
+    }
+
+    /* --- BOUTON DOWNLOAD --- */
+    .download-element-container {
+        grid-column: 1 / 7;
+    }
+
+    .download-element {
+        font-size: clamp(20px, 2.5vw, 40px);
+        letter-spacing: 0.06em;
+    }
+
+    /* --- FOOTER dans la grille ---
+       Le <footer> HTML est fixé en bas, mais .main-page-foot-container
+       vit dans la grille row 7 */
+    .main-page-foot-container {
+        flex-direction: row;
+        align-items: center;
+        justify-content: space-between;
+        padding: 0 4px;
+        overflow: hidden;
+    }
+
+    .top-foot-container {
+        width: 78%;
+        height: auto;
+    }
+
+    .top-foot-element {
+        font-size: clamp(8px, 0.7vw, 12px);
+        text-align: left;
+        line-height: 1.4;
+    }
+
+    .bottom-foot-caontainer {
+        margin-top: 0;
+        width: auto;
+        height: auto;
+        flex-shrink: 0;
+    }
+
+    .bottom-foot-element {
+        font-size: clamp(8px, 0.7vw, 12px);
+        text-align: right;
+        white-space: nowrap;
+    }
+
+    /* Le <footer> HTML fixe sert juste de conteneur transparent —
+       on ajuste sa hauteur pour correspondre à la row 7 */
+    footer {
+        height: calc(100vh / 7 * 0.45);
+    }
+}
+
+/* ============================================
+   GRAND ÉCRAN — 1200px et plus
+   ============================================ */
+
+@media (min-width: 1200px) {
+
+    .title-element {
+        font-size: clamp(80px, 8vw, 150px);
+    }
+
+    .left-header-element {
+        font-size: clamp(20px, 1.6vw, 30px);
+    }
+
+    .right-header-first-element,
+    .right-header-second-element {
+        font-size: 14px;
+    }
+
+    .promotion-element {
+        font-size: clamp(22px, 2.2vw, 36px);
+    }
+
+    .download-element {
+        font-size: clamp(28px, 2.8vw, 48px);
+    }
 }
